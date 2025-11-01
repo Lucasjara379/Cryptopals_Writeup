@@ -5,7 +5,7 @@ def decrypt(hex_str):
     decrypted_msgs = []
 
     for i in range(256):
-        xored = bytes([b ^ i for b in raw_bytes if b ^ i in range(32, 128)])
+        xored = bytes([b ^ i for b in raw_bytes if b ^ i in range(32, 127)])
         if len(xored) == len(raw_bytes):
             msg = xored.decode()
             decrypted_msgs.append(msg)
