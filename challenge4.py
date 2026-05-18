@@ -2,7 +2,6 @@ from challenge3 import decrypt_single_byte_xor
 from utils import score_english
 
 
-decrypted_lines = {}
 with open("challenge4.txt", 'r') as f:
     best_score = float('inf')
     best_line = ''

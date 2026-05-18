@@ -50,7 +50,10 @@ def is_printable(data: bytes) -> bool:
 def score_english(message: str) -> float:
     text = message.lower()
     letters = [letter for letter in text if 'a' <= letter <= 'z']
-    if not letters:
+    if not len(text):
+        return float('inf')
+    alphabet_proportion = len(letters) / len(text)
+    if (not letters) or alphabet_proportion < 0.8:
         return float('inf')
     chi_squared = 0 
     for letter in letter_frequencies:
