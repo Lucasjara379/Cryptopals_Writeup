@@ -53,7 +53,7 @@ def score_english(message: str) -> float:
     if not len(text):
         return float('inf')
     alphabet_proportion = len(letters) / len(text)
-    if (not letters) or alphabet_proportion < 0.8:
+    if (not letters) or alphabet_proportion < 0.75:
         return float('inf')
     chi_squared = 0 
     for letter in letter_frequencies:
