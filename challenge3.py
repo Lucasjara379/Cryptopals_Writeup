@@ -1,7 +1,7 @@
-from utils import single_byte_xor, is_printable, letter_frequencies, score_english
+from utils import single_byte_xor, is_printable, letter_frequencies, score_english, score_rubbish
 
 
-def decrypt_single_byte_xor(hex_str: str) -> str:
+def decrypt_single_byte_xor(hex_str: str) -> tuple[str]:
     """Decrypt hex string that has been encrypted with a single byte xor."""
 
 
@@ -14,7 +14,7 @@ def decrypt_single_byte_xor(hex_str: str) -> str:
             msg = xored.decode()
         except UnicodeDecodeError:
             continue
-        score = score_english(msg)
+        score = score_english(msg) + score_rubbish(msg)
         if score < best_score:
             best_msg, best_score = msg, score
     return best_msg, best_score

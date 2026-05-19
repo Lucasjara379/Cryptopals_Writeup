@@ -11,4 +11,3 @@ with open("challenge4.txt", 'r') as f:
             best_line = decrypted_line
             best_score = score
 print(repr(best_line))
-    

@@ -62,3 +62,18 @@ def score_english(message: str) -> float:
         chi_squared += (n - expected)**2 / expected
     return chi_squared
 
+
+def score_rubbish(message: str) -> int:
+    score = 0 
+    for m in message:
+        if m in 'etaoin shrdlu':
+            score += 3
+        elif m.isalpha():
+            score += 2
+        elif 32 <= ord(m) < 127:
+            score += 1
+        else:
+            score -= 10
+        return score
+        
+
